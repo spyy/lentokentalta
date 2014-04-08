@@ -28,13 +28,13 @@
 				</h1>
 			</div>
 			<ul class="nav nav-tabs">
-				<li class="active">
-					<a href="#">Info</a>
+				<li>
+					<a href="index.htm">Info</a>
 				</li>
 				<li>
-					<a href="oulu.htm">Oulu</a>
+                                    <a href="oulu.htm">Oulu</a>
 				</li>
-				<li>
+                                <li class="active">
 					<a href="apache.php">Apache</a>
 				</li>
 				<li class="disabled">
@@ -62,15 +62,30 @@
 			</ul>
 		</div>
 	</div>
+	
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="jumbotron">
+                <p><img src="images/mobile.jpg" class="img-circle img-responsive center-block"/></p>
+                <ul class="list-group">
+<?php
+$modules=apache_get_modules();
+$arrlength=count($modules);
 
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<div class="jumbotron">
-				<p><img src="images/mobile.jpg" class="img-circle img-responsive center-block"/></p>
-				<p class="text-center">Kertomus jatkuu...</p>
-			</div>
-		</div>
-	</div>
+for($x=0;$x<$arrlength;$x++)
+  {
+  echo "<li class='list-group-item'>";
+  echo $modules[$x];
+  echo "</li>";
+  }
+?>
+
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
   </body>
 </html>
+
+
