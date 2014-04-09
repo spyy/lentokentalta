@@ -25,7 +25,6 @@ and open the template in the editor.
 </head>
 <body>
 <div class="container">
-
 <div class="row clearfix">
 <div class="col-md-12 column">
 <div class="page-header">
@@ -36,8 +35,8 @@ and open the template in the editor.
 <div class="row clearfix">
 <div class="col-md-12 column">
 <ul class="nav nav-tabs">
-    <li class="active"><a href="#">Info</a></li>
-    <li><a href="helsinki.php">Helsinki</a></li>
+    <li><a href="index.htm">Info</a></li>
+    <li class="active"><a href="#">Helsinki</a></li>
     <li><a href="oulu.php">Oulu</a></li>
     <li><a href="tampere.php">Tampere</a></li>
     <li class="dropdown pull-right">
@@ -48,21 +47,51 @@ and open the template in the editor.
     </ul>
     </li>
 </ul>
+<p>   </p>
+<table class="table">
+<tbody>
+
+    
+<?php
+    $json = file_get_contents("https://www.finavia.fi/stage-ajax/getTimetables/?stage-language=fi&airport=HEL&type=arr&q=&showPast=0");
+    $decoded = json_decode($json);
+    $properties = get_object_vars($decoded);       
+    $data = $properties["data"];
+
+    $datetime = "";
+    $tr = "";
+    for($i=0; $i<count($data); $i++ ) {
+        $flight = $data[$i];
+        $properties = get_object_vars($flight);
+        if($properties["history"] == "future"){
+            if($datetime != $properties["datetime"]){
+                $datetime = $properties["datetime"];
+                echo "<tr class='active'>";
+                echo "<td colspan='3'>" . $properties["datetime"] . "</td>";
+                echo "<td>Arvio</td>";
+                echo "</tr>";                
+            }
+            echo "<tr>";
+            echo "<td>" . $properties["time"] . "</td>";
+            echo "<td>" . implode(";", $properties["route"]) . "</td>";
+            echo "<td>" . implode(";", $properties["flightNumber"]) . "</td>";
+            echo "<td>" . $properties["alt_time"] . "</td>";
+            echo "</tr>";
+        }
+                        
+    }                        
+
+?>
+    
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
-<div class="row clearfix">
-<div class="col-md-12 column">
-<div class="jumbotron">
-<p><img src="images/mobile.jpg" class="img-circle img-responsive center-block"/></p>
-<p class="text-center">Kertomus jatkuu...</p>
-</div>
-</div>
-</div>
-
-
-
-
-</div>
 </body>
 </html>
+
+
+        
+
