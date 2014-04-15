@@ -25,32 +25,29 @@ and open the template in the editor.
 </head>
 <body>
 <div class="container">
-<div class="row clearfix">
+<div class="row clearfix ">
 <div class="col-md-12 column">
 <div class="page-header">
-<h1>Lentokentältä <small>Säästä taksi kuluissa</small></h1>
+    <h1>Lentokentältä <small>Säästä taksi kuluissa</small></h1>
 </div>
 </div>
 </div>
-<div class="row clearfix">
+    
+<div class="row clearfix well">
 <div class="col-md-12 column">
 <ul class="nav nav-tabs">
     <li><a href="index.htm">Info</a></li>
     <li><a href="helsinki.php">Helsinki</a></li>
     <li><a href="oulu.php">Oulu</a></li>
     <li class="active"><a href="#">Tampere</a></li>
-    <li class="dropdown pull-right">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Ota yhteyttä<strong class="caret"></strong></a>
-    <ul class="dropdown-menu">
-    <li><a href="#">Face</a></li>
-    <li><a href="#">Google</a></li>
-    </ul>
-    </li>
 </ul>
-<p>   </p>
-<table class="table">
-<tbody>
+    
+    <p>      </p>
 
+
+<table class="table table-hover">
+<tbody>
+    
     
 <?php
     $json = file_get_contents("https://www.finavia.fi/stage-ajax/getTimetables/?stage-language=fi&airport=TMP&type=arr&q=&showPast=0");
@@ -63,21 +60,20 @@ and open the template in the editor.
     for($i=0; $i<count($data); $i++ ) {
         $flight = $data[$i];
         $properties = get_object_vars($flight);
-        if($properties["history"] == "future"){
-            if($datetime != $properties["datetime"]){
-                $datetime = $properties["datetime"];
-                echo "<tr class='active'>";
-                echo "<td colspan='3'>" . $properties["datetime"] . "</td>";
-                echo "<td>Arvio</td>";
-                echo "</tr>";                
-            }
-            echo "<tr>";
-            echo "<td>" . $properties["time"] . "</td>";
-            echo "<td>" . implode(";", $properties["route"]) . "</td>";
-            echo "<td>" . implode(";", $properties["flightNumber"]) . "</td>";
-            echo "<td>" . $properties["alt_time"] . "</td>";
-            echo "</tr>";
+
+        if($datetime != $properties["datetime"]){
+            $datetime = $properties["datetime"];
+            echo "<tr class='active'>";
+            echo "<td colspan='3'>" . $properties["datetime"] . "</td>";
+            echo "<td>Arvio</td>";
+            echo "</tr>";                
         }
+        echo "<tr>";
+        echo "<td>" . $properties["time"] . "</td>";
+        echo "<td>" . implode(";", $properties["route"]) . "</td>";
+        echo "<td>" . implode(";", $properties["flightNumber"]) . "</td>";
+        echo "<td>" . $properties["alt_time"] . "</td>";
+        echo "</tr>";
                         
     }                        
 
@@ -85,6 +81,7 @@ and open the template in the editor.
     
 </tbody>
 </table>
+    
 </div>
 </div>
 </div>

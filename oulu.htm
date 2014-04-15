@@ -1,90 +1,116 @@
 <!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html lang="fi">
-  <head>
-    <!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    
+<!-- Latest compiled and minified JavaScript -->
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-	<!-- UTF-8 -->	
-	<meta charset="UTF-8">
-	
-	<!-- Title -->
-	<title>Lentokentältä</title>
-	
-  </head>
-  <body>
+<!-- UTF-8 -->	
+<meta charset="UTF-8">
 
-  <div class="container">
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<div class="page-header">			
-				<h1>
-					Lentokentältä <small>Perustettu Huhtikuussa 2014</small>
-				</h1>
-			</div>
-			<ul class="nav nav-tabs">
-				<li>
-					<a href="index.htm">Info</a>
-				</li>
-				<li class="active">
-					<a href="#">Oulu</a>
-				</li>
-                                <li>
-					<a href="apache.php">Apache</a>
-				</li>                                
-				<li class="disabled">
-					<a href="#">Helsinki</a>
-				</li>
-				<li class="dropdown pull-right">
-					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown<strong class="caret"></strong></a>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="#">Action</a>
-						</li>
-						<li>
-							<a href="#">Another action</a>
-						</li>
-						<li>
-							<a href="#">Something else here</a>
-						</li>
-						<li class="divider">
-						</li>
-						<li>
-							<a href="#">Separated link</a>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</div>
-	
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <div class="jumbotron">
-                <p><img src="images/mobile.jpg" class="img-circle img-responsive center-block"/></p>
-                <p>Anna ensin matkapuhelin numerosi ja asuinalue mihin olet menossa.</p>
-                <div class="input-group">
-                    <span class="input-group-addon">Matkapuhelin</span>
-                    <input type="text" class="form-control" placeholder="mobile">
-                    <span class="input-group-addon">Asuin alue</span>
-                    <input type="text" class="form-control" placeholder="area">                                    
-                </div>
-                <p>     </p>
-                <p>Valitse sitten lento alla olevasta listasta, millä saavut Ouluun.</p>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a class="badge">valitse</a>
-                      Cras justo odio
-                    </li>
-                </ul>
-            </div>
-        </div>
+<!-- Title -->
+<title>Lentokentältä</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+    var myValue = "kiku";
+    function set(x){
+        window.myValue = x;
+    }
+</script>
+</head>
+<body>
+<div class="container well">
+
+<div class="row clearfix">
+<div class="col-md-12 column">
+<nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost/lentokentalta/">Lentokentältä</a>
     </div>
-</div>
-  </body>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="helsinki.htm">Helsinki</a></li>
+        <li><a href="oulu.htm">Oulu</a></li>
+        <li><a href="tampere.htm">Tampere</a></li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ota yhteyttä <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Google</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+</div><!-- col -->
+</div><!-- row -->
+
+<div class="row clearfix">
+<div class="col-md-12 column">
+    <table class="table table-hover">
+<tbody>
+    
+    
+    <tr class="active" onclick="window.myValue = 'juupi';" data-toggle="modal" href="#modali"><td colspan='4'>Keskiviikko 9.4.2014</td></tr><tr><td>21:10 21:03</td><td>Tukholma</td><td>SK4244</td><td>21:03</td></tr><tr><td>21:50</td><td>Helsinki</td><td>AY2267; AF4678</td><td></td></tr><tr class='active'><td colspan='4'>Torstai 10.4.2014</td></tr><tr><td>00:15</td><td>Helsinki</td><td>AY2269; AB5666; AF4652</td><td></td></tr><tr><td>00:30</td><td>Tukholma</td><td>SK4248</td><td></td></tr><tr><td>09:10</td><td>Tukholma</td><td>SK4246</td><td></td></tr><tr><a href="aku.htm"><td>11:00</td><td>Helsinki</td><td>AY2271</td><td></td></a></tr><tr><td>12:25 12:43</td><td>Alicante</td><td>FR7773</td><td></td></tr>
+</tbody>
+</table>
+
+</div><!-- col -->
+</div><!-- row -->
+
+
+<div class="modal fade" id="modali">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+        <p><script>document.write(window.myValue);</script></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+</div><!-- container -->
+
+
+</body>
 </html>
+
+
+        
+

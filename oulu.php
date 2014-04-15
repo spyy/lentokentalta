@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -63,6 +55,7 @@ and open the template in the editor.
 <div class="row clearfix">
 <div class="col-md-12 column">
 <div class="list-group">
+    <a href='#' class='list-group-item'><div>juuu</div><div>juusssu</div></a>
 <?php
     $json = file_get_contents("https://www.finavia.fi/stage-ajax/getTimetables/?stage-language=fi&airport=OUL&type=arr&q=&showPast=0");
     $decoded = json_decode($json);
@@ -74,21 +67,20 @@ and open the template in the editor.
     for($i=0; $i<count($data); $i++ ) {
         $flight = $data[$i];
         $properties = get_object_vars($flight);
-        if($properties["history"] == "future"){
-            if($datetime != $properties["datetime"]){
-                $datetime = $properties["datetime"];
-                echo "<a href='#' class='list-group-item active'>";
-                echo $properties["datetime"];
-                echo "<span class='badge'>Arvio</span>";
-                echo "</a>";
-            }
-            echo "<a href='#' class='list-group-item'>";
-            echo $properties["time"];
-            echo " " . implode(",", $properties["route"]);
-            echo " " . implode(";", $properties["flightNumber"]);
-            echo "<span class='badge'>" . $properties["alt_time"] . "</span>";
+
+        if($datetime != $properties["datetime"]){
+            $datetime = $properties["datetime"];
+            echo "<a href='#' class='list-group-item active'>";
+            echo $properties["datetime"];
+            echo "<span class='badge'>Arvio</span>";
             echo "</a>";
         }
+        echo "<a href='#' class='list-group-item'>";
+        echo $properties["time"];
+        echo " " . implode(",", $properties["route"]);
+        echo " " . implode(";", $properties["flightNumber"]);
+        echo "<span class='badge'>" . $properties["alt_time"] . "</span>";
+        echo "</a>";
                         
     }                        
 ?>
