@@ -24,7 +24,7 @@ and open the template in the editor.
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class="container well">
+<div class="container">
 <div class="row clearfix">
 <div class="col-md-12 column">
 <div class="page-header">

@@ -60,7 +60,13 @@ and open the template in the editor.
           <li><a href="ihelsinki.htm" tabindex="-1" data-toggle="tab">Ilmoitukset</a></li>
         </ul>
     </li>
-    <li class="active"><a href="oulu.htm">Oulu</a></li>
+    <li class="dropdown active">
+        <a href="helsinki.htm" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Oulu<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+          <li><a href="soulu.htm" tabindex="-1" data-toggle="tab">Saapuvat</a></li>
+          <li><a href="ioulu.htm" tabindex="-1" data-toggle="tab">Ilmoitukset</a></li>
+        </ul>
+    </li>
     <li><a href="tampere.htm">Tampere</a></li>
     </ul>
             
@@ -74,12 +80,21 @@ and open the template in the editor.
 <table class="table table-hover">
 <tbody>
     
-    <tr class="active" onclick="window.myValue = 'juupi';" data-toggle="modal" href="#modali"><td colspan='4'>Keskiviikko 9.4.2014</td></tr><tr><td>21:10 21:03</td><td>Tukholma</td><td>SK4244</td><td>21:03</td></tr><tr><td>21:50</td><td>Helsinki</td><td>AY2267; AF4678</td><td></td></tr><tr class='active'><td colspan='4'>Torstai 10.4.2014</td></tr><tr><td>00:15</td><td>Helsinki</td><td>AY2269; AB5666; AF4652</td><td></td></tr><tr><td>00:30</td><td>Tukholma</td><td>SK4248</td><td></td></tr><tr><td>09:10</td><td>Tukholma</td><td>SK4246</td><td></td></tr><tr><a href="aku.htm"><td>11:00</td><td>Helsinki</td><td>AY2271</td><td></td></a></tr><tr><td>12:25 12:43</td><td>Alicante</td><td>FR7773</td><td></td></tr>
+    <tr class="active" onclick="window.myValue = 'juupi';" data-toggle="modal" href="#modali"><td colspan='4'>Keskiviikko 9.4.2014</td></tr>
+    <tr><td>21:10 21:03</td><td>Tukholma</td><td>SK4244</td><td>21:03</td></tr>
+    <tr><td>21:50</td><td>Helsinki</td><td>AY2267; AF4678</td><td></td></tr>
+    <tr class='active'><td colspan='4'>Torstai 10.4.2014</td></tr>
+    <tr><td>00:15</td><td>Helsinki</td><td>AY2269; AB5666; AF4652</td><td></td></tr>
+    <tr><td>00:30</td><td>Tukholma</td><td>SK4248</td><td></td></tr>
+    <tr><td>09:10</td><td>Tukholma</td><td>SK4246</td><td></td></tr>
+    
 </tbody>
 </table>
 
 </div><!-- col -->
 </div><!-- row -->
+
+</div><!-- container -->
 
 <div class="modal fade" id="modali">
   <div class="modal-dialog">
@@ -99,8 +114,6 @@ and open the template in the editor.
     </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
-</div><!-- container -->
 
 
 </body>

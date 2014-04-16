@@ -36,7 +36,13 @@ and open the template in the editor.
 <div class="row clearfix well">
 <div class="col-md-12 column">
 <ul class="nav nav-tabs">
-    <li><a href="index.htm">Info</a></li>
+    <li class="dropdown">
+        <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Info <b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+          <li><a href="#dropdown1" tabindex="-1" data-toggle="tab">@fat</a></li>
+          <li><a href="#dropdown2" tabindex="-1" data-toggle="tab">@mdo</a></li>
+        </ul>
+    </li>
     <li><a href="helsinki.php">Helsinki</a></li>
     <li><a href="oulu.php">Oulu</a></li>
     <li class="active"><a href="#">Tampere</a></li>
