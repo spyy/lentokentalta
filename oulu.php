@@ -1,62 +1,48 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html lang="fi">
-<head>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">    
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <title>Oulu</title>
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-<!-- UTF-8 -->	
-<meta charset="UTF-8">
-
-<!-- Title -->
-<title>Lentokentältä</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-<div class="container">
-<div class="row clearfix">
-<div class="col-md-12 column">
-<div class="page-header">
-<h1>Lentokentältä <small>Säästä taksi kuluissa</small></h1>
-</div>
-</div>
-</div>
-<div class="row clearfix">
-<div class="col-md-12 column">
-<ul class="nav nav-tabs">
-    <li><a href="index.htm">Info</a></li>
-    <li><a href="helsinki.php">Helsinki</a></li>
-    <li class="active"><a href="#">Oulu</a></li>
-    <li><a href="tampere.php">Tampere</a></li>
-    <li class="dropdown pull-right">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Ota yhteyttä<strong class="caret"></strong></a>
-    <ul class="dropdown-menu">
-    <li><a href="#">Face</a></li>
-    <li><a href="#">Google</a></li>
-    </ul>
-    </li>
-</ul>
-</div>
-</div>
-  
-    <p>    </p>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">    
     
-<div class="row clearfix">
-<div class="col-md-12 column">
-<div class="list-group">
-    <a href='#' class='list-group-item'><div>juuu</div><div>juusssu</div></a>
-<?php
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Lentokentältä</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="helsinki.php">Helsinki</a></li>
+                <li class="active"><a href="#">Oulu</a></li>
+                <li><a href="tampere.php">Tampere</a></li>              
+            </ul>            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+
+    <div class="list-group">
+    <?php
     $json = file_get_contents("https://www.finavia.fi/stage-ajax/getTimetables/?stage-language=fi&airport=OUL&type=arr&q=&showPast=0");
     $decoded = json_decode($json);
     $properties = get_object_vars($decoded);       
@@ -68,51 +54,44 @@ and open the template in the editor.
         $flight = $data[$i];
         $properties = get_object_vars($flight);
 
-        if($datetime != $properties["datetime"]){
-            $datetime = $properties["datetime"];
-            echo "<a href='#' class='list-group-item active'>";
-            echo $properties["datetime"];
-            echo "<span class='badge'>Arvio</span>";
-            echo "</a>";
-        }
         echo "<a href='#' class='list-group-item'>";
         echo $properties["time"];
         echo " " . implode(",", $properties["route"]);
         echo " " . implode(";", $properties["flightNumber"]);
         echo "<span class='badge'>" . $properties["alt_time"] . "</span>";
-        echo "</a>";
-                        
+        echo "</a>";                        
     }                        
-?>
-</div>
-</div>
-</div>
+    ?>        
+    </div> <!-- list group -->
+
+    </div> <!-- /container -->
     
-
-
-
-<div class="modal fade">
-  <div class="modal-dialog">
+    <div>
+      <div class="container">
+        <p class="text-muted text-center">lentokentalta@gmail.com</p>
+      </div>
+    </div>
+    
+    <div class="modal fade" id="myModal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <p>One fine body&hellip;</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+        ...
     </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-</div><!-- container -->
-</body>
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    
+    <div class="modal fade" id="mySubModal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        ...
+    </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    
+    
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  </body>
 </html>
-
-
-        
 
