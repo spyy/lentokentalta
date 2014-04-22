@@ -33,33 +33,27 @@
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Helsinki</a></li>
-                <li><a href="oulu.php">Oulu</a></li>
-                <li><a href="tampere.php">Tampere</a></li>              
+                <li><a href="oulus.php">Oulu</a></li>
+                <li><a href="tamperes.php">Tampere</a></li>              
             </ul>            
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </div>
 
-
     <div class="list-group">
     <?php
-    $json = file_get_contents("https://www.finavia.fi/stage-ajax/getTimetables/?stage-language=fi&airport=HEL&type=arr&q=&showPast=0");
-    $decoded = json_decode($json);
-    $properties = get_object_vars($decoded);       
-    $data = $properties["data"];
-
-    $datetime = "";
-    $tr = "";
-    for($i=0; $i<count($data); $i++ ) {
+    for($i=0; $i<count($data) && $i<33; $i++ ) {
         $flight = $data[$i];
         $properties = get_object_vars($flight);
-
-        echo "<a href='#' class='list-group-item'>";
-        echo $properties["time"];
-        echo " " . implode(",", $properties["route"]);
-        echo " " . implode(";", $properties["flightNumber"]);
-        echo "<span class='badge'>" . $properties["alt_time"] . "</span>";
-        echo "</a>";                        
+        
+        if($properties["history"] == "future") {
+            echo "<a href='#' class='list-group-item'>";
+            echo $properties["time"];
+            echo " " . implode(",", $properties["route"]);
+            echo " " . implode(";", $properties["flightNumber"]);
+            echo "<span class='badge'>" . $properties["alt_time"] . "</span>";
+            echo "</a>";
+        }
     }                        
     ?>        
     </div> <!-- list group -->

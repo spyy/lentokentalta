@@ -32,9 +32,9 @@
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="helsinki.php">Helsinki</a></li>
+                <li><a href="helsinkis.php">Helsinki</a></li>
                 <li class="active"><a href="#">Oulu</a></li>
-                <li><a href="tampere.php">Tampere</a></li>              
+                <li><a href="tamperes.php">Tampere</a></li>              
             </ul>            
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -43,13 +43,6 @@
 
     <div class="list-group">
     <?php
-    $json = file_get_contents("https://www.finavia.fi/stage-ajax/getTimetables/?stage-language=fi&airport=OUL&type=arr&q=&showPast=0");
-    $decoded = json_decode($json);
-    $properties = get_object_vars($decoded);       
-    $data = $properties["data"];
-
-    $datetime = "";
-    $tr = "";
     for($i=0; $i<count($data); $i++ ) {
         $flight = $data[$i];
         $properties = get_object_vars($flight);
