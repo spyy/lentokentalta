@@ -6,26 +6,42 @@
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+<script>
+function lataa(kaupunki)
+{
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    $('#lennot').html(xmlhttp.responseText);
+    $('#lennot').listview('refresh');
+    }
+  }
+xmlhttp.open("GET",kaupunki,true);
+xmlhttp.send();
+}
+</script>
 </head>
 <body>
 
 <div data-role="page" id="pageone" data-theme="b">
-  <div data-role="header">
-    <h1>Lentokentältä</h1>
-    <div data-role="navbar">
-      <ul>
-        <li><a href="#">Helsinki</a></li>
-        <li><a href="#">Jyväskylä</a></li>
-        <li><a href="#">Oulu</a></li>
-        <li><a href="#">Tampere</a></li>
-      </ul>
-    </div>
+<div data-role="header">
+  <h1>Lentokentältä</h1>
+  <div data-role="navbar">
+    <ul>
+      <li><a href="#" onclick="lataa('helsinki.php');">Helsinki</a></li>
+      <li><a href="#" onclick="lataa('oulu.php');">Oulu</a></li>
+      <li><a href="#" onclick="lataa('tampere.php');">Tampere</a></li>
+    </ul>
   </div>
+</div>
 
-  <div data-role="main" class="ui-content">
-    <p>My Content..</p>
-  </div>
-
+<div data-role="main" class="ui-content">
+<ul id="lennot" data-role="listview" data-inset="true">
+    <li><a href="#">Valitse kaupunki...</a></li>
+</ul>
+</div>
   
 </div> 
 

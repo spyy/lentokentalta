@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">    
     
   </head>
-
   <body>
 
     <div class="container">
