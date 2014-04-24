@@ -1,7 +1,8 @@
 
 <?php
 $data = array();
-$shm_key = ftok(__FILE__, 't');
+$pathname = __DIR__ . "/mobile/tampere.php";
+$shm_key = ftok($pathname, "t");
 $shm_id = shmop_open($shm_key, "a", 0666, 0);
 
 if(empty($shm_id)){        
@@ -24,5 +25,9 @@ else {
 
 shmop_close($shm_id);
 
-include("tampere.php"); 
+
+$helsinki = "<li><a href='helsinkis.php'>Helsinki</a></li>";
+$oulu = "<li><a href='oulus.php'>Oulu</a></li>";
+$tampere = "<li class='active'><a href='#'>Tampere</a></li>";
+include("kaupunki.php"); 
 ?>

@@ -1,8 +1,6 @@
 <?php
-$json = file_get_contents("https://www.finavia.fi/stage-ajax/getTimetables/?stage-language=fi&airport=HEL&type=arr&q=&showPast=0");
-$decoded = json_decode($json);
-$properties = get_object_vars($decoded);       
-$data = $properties["data"];
-
+$data = array();
+$expire = 0;
+include("../inc/helsinki.php");
 include("lennot.php"); 
 ?>
