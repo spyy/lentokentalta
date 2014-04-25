@@ -1,71 +1,81 @@
 <!DOCTYPE html>
+<!-- saved from url=(0048)http://getbootstrap.com/examples/justified-nav/# -->
 <html lang="fi">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">    
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico">
 
-    <title>Lentokentältä</title>
+<title>Lentokentältä</title>
 
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">    
+<link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">    
+<link href="justified-nav.css" rel="stylesheet">
+
+</head>
     
-  </head>
+<body>
 
-  <body>
+<div class="container">
 
-    <div class="container">
-
-      <!-- Static navbar -->
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Lentokentältä</a>
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="helsinki.php">Helsinki</a></li>
-                <li><a href="oulu.php">Oulu</a></li>
-                <li><a href="tampere.php">Tampere</a></li>              
-            </ul>            
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </div>
-
-    <div class="jumbotron">  
-        <h1><span>Säästä taksikuluissa   </span><span class="label label-success">Think Green</span></h1>
-    <p>Lentosi on saapumassa kentälle ja haluaisit säästää rahaa.</p>
-    <h2>Tee seuraavasti</h2>
-    <p>1. Valitse lento jolla saavut.</p>
-    <p>2. Ilmoita alue mihin jatkat sekä myös matkapuhelinnumerosi.</p>
-    <h2>Joku näkee ilmoituksesi ja on menossa samalle alueelle</h2>
-    <p>1. Saat puhelin soiton.</p>
-    <p>2. Sovitte treffit taksitolpalle ja otatte yhteisen taksin.</p>
-    <p>3. Taksikuski jakaa taksamittarin summan maksajien määrällä. Esimerkiksi jos kyydin hinta on 56 euroa ja maksajia on kaksi, niin ensimmäinen kyydistä jäävä maksaa 23 euroa. Sen jälkeen mittarissa on 23 euroa ja kyyti jatkuu.</p>
+<div class="masthead">
+  <ul class="nav nav-justified">
+    <li class="active"><a href="#">Lentokentältä</a></li>
+    <li><a href="helsinki.php">Helsinki</a></li>
+    <li><a href="oulu.php">Oulu</a></li>
+    <li><a href="tampere.php">Tampere</a></li>
     
-    <h2>Palvelu ei ole vielä toiminnassa</h2>
-    <p>...</p>
-    </div>      
+  </ul>
+</div>
 
-    </div> <!-- /container -->
+<p>   </p>
+
+<div class="jumbotron">
+ 
+<h1>Säästä taksikuluissa</h1>
+  <p>Lentosi on saapumassa kentälle ja haluaisit säästää rahaa.</p>
+  <p><span class="label label-success">Aja vihreästi</span></p>
+  <p><span class="label label-danger">Palvelu ei ole vielä toiminnassa</span></p>
+
+</div>
+
+<div class="row marketing">
+<div class="col-sm-4">
+<h2>Tee seuraavasti</h2>
+<p>1. Valitse lento jolla saavut.</p>
+<p>2. Ilmoita alue mihin jatkat sekä myös matkapuhelinnumerosi.</p>
+</div>
+
+<div class="col-sm-4">
+<h2>Joku näkee ilmoituksesi <small>ja on menossa samalle alueelle</small></h2>
+<p>1. Saat puhelin soiton.</p>
+<p>2. Sovitte treffit taksitolpalle ja otatte yhteisen taksin.</p>
+<p>3. Taksikuski jakaa taksamittarin summan maksajien määrällä. Esimerkiksi jos kyydin hinta on 56 euroa ja maksajia on kaksi, niin ensimmäinen kyydistä jäävä maksaa 23 euroa. Sen jälkeen mittarissa on 23 euroa ja kyyti jatkuu.</p>
+</div>
     
-     <div>
-      <div class="container">
-        <p class="text-muted text-center">lentokentalta@gmail.com</p>
-      </div>
-    </div>
+<div class="col-sm-4">
+<h2>Taksikuski jakaa maksun</h2>
+<p>Taksikuski jakaa taksamittarin summan maksajien määrällä.</p>
+<p>Esimerkiksi jos kyydin hinta on 56 euroa ja maksajia on kaksi, niin ensimmäinen kyydistä jäävä maksaa 23 euroa. Sen jälkeen mittarissa on 23 euroa ja kyyti jatkuu.</p>
+</div>
     
-        
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-  </body>
+</div>
+
+<!-- Site footer -->
+<div class="footer">
+  <p>© Company 2014</p>
+</div>
+
+</div> <!-- /container -->
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+</body>
 </html>
