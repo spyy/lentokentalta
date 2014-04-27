@@ -25,47 +25,30 @@
 
 <div class="masthead">
   <ul class="nav nav-justified">
-    <li class="active"><a href="#">Lentokentältä</a></li>
-    <li><a href="helsinki.php">Helsinki</a></li>
-    <li><a href="oulu.php">Oulu</a></li>
-    <li><a href="tampere.php">Tampere</a></li>
-    
+    <li><a href="index.html">Lentokentältä</a></li>
+    <?php echo $helsinki; ?>
+    <?php echo $oulu; ?>
+    <?php echo $tampere; ?>
   </ul>
 </div>
 
 <p>   </p>
 
-<div class="jumbotron">
- 
-<h1>Säästä taksikuluissa</h1>
-  <p>Lentosi on saapumassa kentälle ja haluaisit säästää rahaa.</p>  
-  <p>
-      <span class="label label-success">Aja vihreästi</span>
-      <span class="label label-danger">Palvelu ei ole vielä toiminnassa</span>
-  </p>  
+<div class="list-group">
+<?php
+for($i=0; $i<count($flights); $i++ ) {
+    $flight = $flights[$i];
+    $properties = get_object_vars($flight);
 
-</div>
-
-<div class="row marketing">
-<div class="col-sm-4">
-<h2>Toimi seuraavasti</h2>
-<p>1. Valitse lento jolla saavut.</p>
-<p>2. Ilmoita alue mihin jatkat, sekä myös matkapuhelinnumerosi.</p>
-</div>
-
-<div class="col-sm-4">
-<h2>Muitakin on menossa samalle alueelle</h2>
-<p>1. Saat puhelin soiton.</p>
-<p>2. Sovitte treffit taksitolpalle ja otatte yhteisen taksin.</p>
-</div>
-    
-<div class="col-sm-4">
-<h2>Taksikuski jakaa maksun</h2>
-<p>Taksikuski jakaa taksamittarin summan maksajien määrällä.</p>
-<p>Esimerkiksi jos kyydin hinta on 56 euroa ja maksajia on kaksi, niin ensimmäinen kyydistä jäävä maksaa 23 euroa. Sen jälkeen mittarissa on 23 euroa ja kyyti jatkuu.</p>
-</div>
-    
-</div>
+    echo "<a href='#' class='list-group-item'>";
+    echo $properties["time"];
+    echo " " . implode(",", $properties["route"]);
+    echo " " . implode(";", $properties["flightNumber"]);
+    echo "<span class='badge'>" . $properties["alt_time"] . "</span>";
+    echo "</a>";                        
+}                        
+?>        
+</div> <!-- list group -->
 
 <!-- Site footer -->
 <div class="footer">
