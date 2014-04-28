@@ -96,8 +96,8 @@ for($i=0; $i<count($flights); $i++) {
     </table>
     </div>
 
-    <div class="modal-footer">
     <p>Soita numeroon tai lisää uusi alue.</p>
+    <div class="modal-footer">    
     <button type="button" class="btn btn-info btn-block btn-lg" data-toggle="modal" data-target="#subdialog">Lisää uusi alue</button>    
     </div>
 
