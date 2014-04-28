@@ -43,8 +43,7 @@ for($i=0; $i<count($flights); $i++) {
     if($properties["history"] == "future"){
         $hash = md5($properties["datetime"] . $properties["flight_id"]);
         $path = "flight_oulu.php?id=" . $hash;
-        echo "<a class='list-group-item' data-toggle='modal' data-target='#dialog'";
-        echo " href='" . $path . "'>";     
+        echo "<a class='list-group-item' href='" . $path . "'>";     
         echo $properties["time"];
         echo " " . implode(",", $properties["route"]);
         echo " " . implode(";", $properties["flightNumber"]);

@@ -71,5 +71,6 @@ for($i=0; $i<count($flights); $i++) {
 
 </div> <!-- /container -->
 
+
 </body>
 </html>
