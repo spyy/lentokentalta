@@ -25,7 +25,7 @@
 
 <div class="masthead">
   <ul class="nav nav-justified">
-    <li><a href="index.html">Lentokentältä</a></li>
+    <li><a href="index.html">lentokentalta.net</a></li>
     <li class="active"><a href='#'>Helsinki</a></li>
     <li><a href='oulu.php'>Oulu</a></li>
     <li><a href='tampere.php'>Tampere</a></li>
@@ -66,7 +66,7 @@ for($i=0; $i<count($flights); $i++) {
 
 <!-- Site footer -->
 <div class="footer">
-  <p>© Company 2014</p>
+  <p>lentokentalta@gmail.com</p>
 </div>
 
 </div> <!-- /container -->
@@ -97,7 +97,8 @@ for($i=0; $i<count($flights); $i++) {
     </div>
 
     <div class="modal-footer">
-    <button type="button" class="btn btn-info btn-block btn-lg" data-toggle="modal" data-target="#subdialog">Lisää uusi</button>    
+    <p>Soita numeroon tai lisää uusi alue.</p>
+    <button type="button" class="btn btn-info btn-block btn-lg" data-toggle="modal" data-target="#subdialog">Lisää uusi alue</button>    
     </div>
 
 </div><!-- /.modal-content -->
