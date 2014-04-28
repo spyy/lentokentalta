@@ -26,9 +26,9 @@
 <div class="masthead">
   <ul class="nav nav-justified">
     <li><a href="index.html">Lentokentältä</a></li>
-    <?php echo $helsinki; ?>
-    <?php echo $oulu; ?>
-    <?php echo $tampere; ?>
+    <li><a href='helsinki.php'>Helsinki</a></li>
+    <li><a href='oulu.php'>Oulu</a></li>
+    <li class="active"><a href='#'>Tampere</a></li>
   </ul>
 </div>
 
@@ -36,17 +36,25 @@
 
 <div class="list-group">
 <?php
-for($i=0; $i<count($flights); $i++ ) {
+for($i=0; $i<count($flights); $i++) {
     $flight = $flights[$i];
     $properties = get_object_vars($flight);
 
     if($properties["history"] == "future"){
         $hash = md5($properties["datetime"] . $properties["flight_id"]);
-        echo "<a class='list-group-item' data-toggle='modal' data-target='#dialog' href='flight.php?id=";
-        echo $hash . "'>";
+        $path = "flight_tampere.php?id=" . $hash;
+        echo "<a class='list-group-item' href='" . $path . "'>";     
         echo $properties["time"];
         echo " " . implode(",", $properties["route"]);
         echo " " . implode(";", $properties["flightNumber"]);
+        
+        $flight_areas = $areas[$hash];
+        if(!empty($flight_areas)) {
+            $values = array_values($flight_areas);
+            for($k=0; $k<count($values); $k++) {
+                echo "<span class='badge'>" . $values[$k] . "</span>";
+            }
+        }
         if(!empty($properties["alt_time"])){
             echo "<span class='badge'>" . $properties["alt_time"] . "</span>";
         }
@@ -66,7 +74,32 @@ for($i=0; $i<count($flights); $i++ ) {
 <div class="modal fade" id="dialog" role="dialog" aria-hidden="true">
 <div class="modal-dialog modal-sm">
 <div class="modal-content">
-    ...
+
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title"><?php echo $title; ?></h4>
+    </div>
+
+    <div class="modal-body">
+    <table class="table">
+    <tbody>
+    <?php    
+    foreach($tampere_areas as $key => $value) {
+        echo '<tr><td>';
+        echo $value;
+        echo '</td><td>';
+        echo $key;
+        echo '</td></tr>';       
+    }
+    ?>
+    </tbody>
+    </table>
+    </div>
+
+    <div class="modal-footer">
+    <button type="button" class="btn btn-info btn-block btn-lg" data-toggle="modal" data-target="#subdialog">Lisää uusi</button>    
+    </div>
+
 </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
@@ -74,14 +107,39 @@ for($i=0; $i<count($flights); $i++ ) {
 <div class="modal fade" id="subdialog" role="dialog" aria-hidden="true">
 <div class="modal-dialog modal-sm">
 <div class="modal-content">
-    ...
+    
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title"><?php echo $title; ?></h4>
+    </div>
+
+    <div class="modal-body">
+    <?php echo "<form method='post' action='area_tampere.php?id=" . $id . "'>"; ?>
+    <div class="form-group">
+    <label for="area">Alue</label>
+    <input name="area" type="text" class="form-control" placeholder="Esim. Hervanta">
+    </div>
+
+    <div class="form-group">
+    <label for="mobile">Numero</label>
+    <input name="mobile" type="tel" class="form-control" placeholder="Matkapuhelin numero">
+    </div>
+        
+    <button class="btn btn-primary btn-block btn-lg" type="submit">Tee ilmoitus</button>
+    </form> 
+    </div>
+
 </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
 
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
+<script>$(window).load(function(){$('<?php echo $dialog; ?>').modal('show');});</script>
+
 </body>
 </html>
+

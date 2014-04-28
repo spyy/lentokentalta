@@ -26,7 +26,19 @@ $decoded = json_decode($json);
 $properties = get_object_vars($decoded);       
 $data = $properties["data"];
 ?>
-    <p><?php var_dump($data[0]); ?></p>
+ 
+<div class="list-group">
+<?php
+for($i=0; $i<count($data); $i++ ) {
+    echo '<p>';
+    var_dump($data[$i]);
+    echo '</p>';
+}
+?>  
+</div>
+    
+    
+    
 
 <div class="list-group">
 <?php

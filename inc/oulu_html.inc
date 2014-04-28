@@ -26,9 +26,9 @@
 <div class="masthead">
   <ul class="nav nav-justified">
     <li><a href="index.html">Lentokentältä</a></li>
-    <?php echo $helsinki; ?>
-    <?php echo $oulu; ?>
-    <?php echo $tampere; ?>
+    <li><a href='helsinki.php'>Helsinki</a></li>
+    <li class='active'><a href='#'>Oulu</a></li>
+    <li><a href='tampere.php'>Tampere</a></li>
   </ul>
 </div>
 
@@ -36,17 +36,25 @@
 
 <div class="list-group">
 <?php
-for($i=0; $i<count($flights); $i++ ) {
+for($i=0; $i<count($flights); $i++) {
     $flight = $flights[$i];
     $properties = get_object_vars($flight);
 
     if($properties["history"] == "future"){
         $hash = md5($properties["datetime"] . $properties["flight_id"]);
-        echo "<a class='list-group-item' data-toggle='modal' data-target='#dialog' href='flight.php?id=";
-        echo $hash . "'>";
+        $path = "flight_oulu.php?id=" . $hash;
+        echo "<a class='list-group-item' href='" . $path . "'>";     
         echo $properties["time"];
         echo " " . implode(",", $properties["route"]);
         echo " " . implode(";", $properties["flightNumber"]);
+        
+        $flight_areas = $areas[$hash];
+        if(!empty($flight_areas)) {
+            $values = array_values($flight_areas);
+            for($k=0; $k<count($values); $k++) {
+                echo "<span class='badge'>" . $values[$k] . "</span>";
+            }
+        }
         if(!empty($properties["alt_time"])){
             echo "<span class='badge'>" . $properties["alt_time"] . "</span>";
         }
@@ -62,26 +70,6 @@ for($i=0; $i<count($flights); $i++ ) {
 </div>
 
 </div> <!-- /container -->
-
-<div class="modal fade" id="dialog" role="dialog" aria-hidden="true">
-<div class="modal-dialog modal-sm">
-<div class="modal-content">
-    ...
-</div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<div class="modal fade" id="subdialog" role="dialog" aria-hidden="true">
-<div class="modal-dialog modal-sm">
-<div class="modal-content">
-    ...
-</div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>
