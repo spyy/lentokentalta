@@ -25,6 +25,11 @@ if(time() > $lennot->expire){
     $serialized = serialize($lennot);
     $len = strlen($serialized);
 
+    if(shmop_size($shm_id) < $len) {
+        shmop_delete($shm_id); // resizing
+    }
+    
+    shmop_close($shm_id);
     $shm_id = shmop_open($shm_key, "c", 0666, $len);
     shmop_write($shm_id, $serialized, 0);
 }
