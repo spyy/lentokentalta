@@ -13,3 +13,5 @@ $method = "write";
 include("inc/helsinki_areas.inc");
 
 include("inc/helsinki_html.inc");
+
+meilaa(__FILE__, $mobile . ": " . $area);

@@ -13,3 +13,5 @@ $method = "write";
 include("inc/tampere_areas.inc");
 
 include("inc/tampere_html.inc");
+
+meilaa(__FILE__, $mobile . ": " . $area);

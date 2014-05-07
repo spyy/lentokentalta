@@ -1,8 +1,7 @@
 <?php
 
 class Ilmoitukset {
-    public $max = 0;
-    public $index = 0;
+    public $expire = 0;
     public $data = array();
 }
 
@@ -24,6 +23,12 @@ else {
     $notifications = unserialize($shm_data);    
 }
 
+// clean expired data
+if(time() > $notifications->expire && $notifications->expire){
+    $notifications->data = array();
+    meilaa(__FILE__, "areas expired: " . $notifications->expire);
+}
+
 $areas = $notifications->data;
 
 if($method == "write") {    
@@ -33,17 +38,18 @@ if($method == "write") {
     }    
     $flight_areas[$mobile] = $area; 
     $areas[$id] = $flight_areas;
+    
     $notifications->data = $areas;
+    $notifications->expire = time() + 36000;
     
     $serialized = serialize($notifications);
     $len = strlen($serialized);
     
-    if(shmop_size($shm_id) < $len) {
-        shmop_delete($shm_id); // resizing
-    }
-    
+    // resizing
+    shmop_delete($shm_id); 
     shmop_close($shm_id);    
     $shm_id = shmop_open($shm_key, "c", 0666, $len);
+    
     $written = shmop_write($shm_id, $serialized, 0);
 }
 

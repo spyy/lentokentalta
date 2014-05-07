@@ -13,3 +13,5 @@ $method = "write";
 include("inc/oulu_areas.inc");
 
 include("inc/oulu_html.inc");
+
+meilaa(__FILE__, $mobile . ": " . $area);
