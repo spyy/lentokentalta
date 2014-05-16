@@ -1,4 +1,7 @@
 <?php
+
+header("Access-Control-Allow-Origin: *");
+
 $flights = array();
 $expire = 0;
 include("../inc/helsinki_flights.inc");
