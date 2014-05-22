@@ -118,12 +118,12 @@ for($i=0; $i<count($flights); $i++) {
     <?php echo "<form method='post' action='area_helsinki.php?id=" . $id . "'>"; ?>
     <div class="form-group">
     <label for="area">Alue</label>
-    <input name="area" type="text" class="form-control" placeholder="Esim. Herttoniemi">
+    <input name="area" type="text" class="form-control" placeholder="Esim. Herttoniemi" required>
     </div>
 
     <div class="form-group">
     <label for="mobile">Numero</label>
-    <input name="mobile" type="tel" class="form-control" placeholder="Matkapuhelin numero">
+    <input name="mobile" type="text" class="form-control" placeholder="Matkapuhelin numero" pattern="[\+0-9]{8,13}" required>
     </div>
         
     <button class="btn btn-primary btn-block btn-lg" type="submit">Tee ilmoitus</button>
