@@ -117,7 +117,7 @@ for($i=0; $i<count($flights); $i++) {
     <div class="modal-body">
     <?php echo "<form method='post' action='area_tampere.php?id=" . $id . "'>"; ?>
     <div class="form-group">
-    <label for="area">Alue</label>
+    <label for="area">Mihin olet menossa ( alue )</label>
     <input name="area" type="text" class="form-control" placeholder="Esim. Hervanta" required>
     </div>
 
