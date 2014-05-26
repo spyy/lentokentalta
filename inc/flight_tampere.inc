@@ -77,28 +77,27 @@ for($i=0; $i<count($flights); $i++) {
 
     <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title"><?php echo $title; ?></h4>
+    <h4 class="modal-title">Lento <?php echo $title; ?></h4>
     </div>
 
-    <div class="modal-body">
-    <table class="table">
-    <tbody>
+    <div class="modal-body">   
+    <dl class="dl-horizontal">    
     <?php    
     foreach($tampere_areas as $key => $value) {
-        echo '<tr><td>';
-        echo $value;
-        echo '</td><td>';
+        echo '<dt>';
         echo $key;
-        echo '</td></tr>';       
+        echo '</dt><dd>';
+        echo $value;
+        echo '</dd>';       
     }
     ?>
-    </tbody>
-    </table>
+    </dl>
+        
+    <p class="text-center">Soita ylläolevaan numeroon tai ilmoita mihin olet menossa.</p>        
     </div>
 
-    <p class="text-center">Soita numeroon tai lisää uusi alue.</p>
     <div class="modal-footer">
-    <button type="button" class="btn btn-info btn-block btn-lg" data-toggle="modal" data-target="#subdialog">Lisää uusi alue</button>    
+    <button type="button" class="btn btn-info btn-block btn-lg" data-toggle="modal" data-target="#subdialog">Olen menossa</button>    
     </div>
 
 </div><!-- /.modal-content -->
@@ -111,18 +110,18 @@ for($i=0; $i<count($flights); $i++) {
     
     <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title"><?php echo $title; ?></h4>
+    <h4 class="modal-title">Saavun lennolla <?php echo $title; ?> ja jatkan alueelle</h4>
     </div>
 
     <div class="modal-body">
     <?php echo "<form method='post' action='area_tampere.php?id=" . $id . "'>"; ?>
     <div class="form-group">
-    <label for="area">Mihin olet menossa ( alue )</label>
-    <input name="area" type="text" class="form-control" placeholder="Esim. Hervanta" required>
+    <label for="area">Alue (ei numeroita)</label>
+    <input name="area" type="text" class="form-control" placeholder="Esim. Hervanta"  pattern="[a-öA-Ö]{2,18}" required>
     </div>
 
     <div class="form-group">
-    <label for="mobile">Numero</label>
+    <label for="mobile">Matkapuhelin</label>
     <input name="mobile" type="text" class="form-control" placeholder="Matkapuhelin numero" pattern="[\+0-9]{8,13}" required>
     </div>
         

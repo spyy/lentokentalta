@@ -23,7 +23,7 @@ if(empty($flight)){
     exit(0);
 }
 
-$title = implode(",", $flight["route"]) . " " .implode(",", $flight["flightNumber"]);
+$title = implode(",", $flight["flightNumber"]) . " " .implode(",", $flight["route"]);
 
 $areas = array();
 $method = "read";
