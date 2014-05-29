@@ -86,7 +86,7 @@ for($i=0; $i<count($flights); $i++) {
     foreach($helsinki_areas as $key => $value) {
         echo '<dt>';
         echo $key;
-        echo '</dt><dd>';
+        echo '</dt><dd> ';
         echo $value;
         echo '</dd>';       
     }
