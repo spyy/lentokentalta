@@ -54,10 +54,7 @@ for($i=0; $i<count($flights); $i++) {
             for($k=0; $k<count($values); $k++) {
                 echo "<span class='badge'>" . $values[$k] . "</span>";
             }
-        }
-        if(!empty($properties["alt_time"])){
-            echo "<span class='badge'>" . $properties["alt_time"] . "</span>";
-        }
+        }     
         echo "</a>";                        
     } 
 }                        
