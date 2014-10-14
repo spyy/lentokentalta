@@ -44,7 +44,10 @@ for($i=0; $i<count($flights); $i++) {
         $hash = md5($properties["datetime"] . $properties["flight_id"]);
         $path = "flight_helsinki.php?id=" . $hash;
         echo "<a class='list-group-item' href='" . $path . "'>";     
-        echo $properties["time"];
+        if(!empty($properties["alt_time"]))
+            echo $properties["alt_time"];
+        else
+            echo $properties["time"];
         echo " " . implode(",", $properties["route"]);
         echo " " . implode(";", $properties["flightNumber"]);
         
