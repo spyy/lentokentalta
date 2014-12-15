@@ -26,7 +26,7 @@ elseif (time() > $lennot->expire) {
 
 if($fetch){
     meilaa($pathname, "fetching");
-    $json = file_get_contents("http://www.finavia.fi/stage-ajax/getTimetables/?stage-language=fi&airport=HEL&type=arr&showPast=0");
+    $json = file_get_contents("http://www.finavia.fi/stage-ajax/getTimetables2?stage-language=fi&airport=HEL&type=arr&showPast=0&q");
     $decoded = json_decode($json);    
     
     $lennot->data = $decoded->data;

@@ -43,13 +43,14 @@ for($i=0; $i<count($flights); $i++) {
     if($properties["history"] == "future"){
         $hash = md5($properties["datetime"] . $properties["flight_id"]);
         $path = "flight_helsinki.php?id=" . $hash;
-        echo "<a class='list-group-item' href='" . $path . "'>";     
+        echo "<a class='list-group-item' href='" . $path . "'>";
+        echo $properties["time"] . " ";
         if(!empty($properties["alt_time"]))
             echo $properties["alt_time"];
         else
             echo $properties["time"];
         echo " " . implode(",", $properties["route"]);
-        echo " " . implode(";", $properties["flightNumber"]);
+        echo " " . implode(";", $properties["flight_nrs"]);
         
         $flight_areas = $areas[$hash];
         if(!empty($flight_areas)) {
