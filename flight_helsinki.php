@@ -19,21 +19,24 @@ for($i=0; $i<count($flights); $i++) {
 $title = "Lentoa ei löytynyt";
 
 if(empty($flight)){
-    include 'inc/flight_oulu_error.inc';    
+    include 'inc/flight_error.inc';    
     exit(0);
 }
 
-$title = implode(",", $flight["flightNumber"]) . " " .implode(",", $flight["route"]);
+$modalTitle = implode(",", $flight["flightNumber"]) . " " .implode(",", $flight["route"]);
 
 $areas = array();
 $method = "read";
 include("inc/helsinki_areas.inc");
 
 $dialog = "#dialog";
-$helsinki_areas = $areas[$id];
+$found_areas = $areas[$id];
 
-if(empty($helsinki_areas)){
+if(empty($found_areas)){
     $dialog = "#subdialog";
+} else {
+    $modalTitle = current($found_areas);
+    $callToNumber = key($found_areas);
 }
 
 include 'inc/flight_helsinki.inc';

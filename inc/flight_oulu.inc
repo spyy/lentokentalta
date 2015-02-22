@@ -85,27 +85,13 @@ for($i=0; $i<count($flights); $i++) {
 
     <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title">Lento <?php echo $title; ?></h4>
+    <h4 class="modal-title"><?php echo $modalTitle; ?></h4>
     </div>
 
-    <div class="modal-body">        
-    <dl class="dl-horizontal">    
-    <?php    
-    foreach($oulu_areas as $key => $value) {
-        echo '<dt>';
-        echo $key;
-        echo '</dt><dd> ';
-        echo $value;
-        echo '</dd>';       
-    }
-    ?>
-    </dl>
-        
-    <p class="text-center">Soita ylläolevaan numeroon tai ilmoita mihin olet menossa.</p>
-    </div>
-
-    <div class="modal-footer">    
-    <button type="button" class="btn btn-info btn-block btn-lg" data-toggle="modal" data-target="#subdialog">Olen menossa</button>    
+    <div class="modal-body">   
+    <p>Soita numeroon: <strong>
+    <?php echo $callToNumber; ?>
+    </strong></p>
     </div>
 
 </div><!-- /.modal-content -->
