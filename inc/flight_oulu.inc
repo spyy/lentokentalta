@@ -104,7 +104,7 @@ for($i=0; $i<count($flights); $i++) {
     
     <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title">Saavun lennolla <?php echo $title; ?> ja jatkan alueelle</h4>
+    <h4 class="modal-title">Saavun lennolla <?php echo $modalTitle; ?> ja jatkan alueelle</h4>
     </div>
 
     <div class="modal-body">

@@ -16,8 +16,6 @@ for($i=0; $i<count($flights); $i++) {
     }   
 }
 
-$title = "Lentoa ei löytynyt";
-
 if(empty($flight)){
     include 'inc/flight_error.inc';    
     exit(0);
