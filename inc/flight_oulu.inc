@@ -32,7 +32,6 @@
 
 <div class="masthead">
   <ul class="nav nav-justified">
-    <li><a href="index.html">lentokentalta.net</a></li>
     <li><a href='helsinki.php'>Helsinki</a></li>
     <li class='active'><a href='#'>Oulu</a></li>
     <li><a href='tampere.php'>Tampere</a></li>
