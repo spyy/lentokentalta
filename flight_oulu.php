@@ -1,41 +1,53 @@
 <?php
 
+$town = "oulu";
+$reference_area = "Pateniemi";
+
+define("REDIRECT_URI", "http://lentokentalta.local.net/publish_" . $town . ".php");
+define("PICTURE_URI", "https://graph.facebook.com/me/picture?access_token=%s");
+define("ME_URI", "https://graph.facebook.com/me?access_token=%s");
+define("FB_ADDRESS", "http://facebook.com/%s");
+define("NAV_LIST", "<li><a href='helsinki.php'>Helsinki</a></li><li class='active'><a href='#'>Oulu</a></li><li><a href='tampere.php'>Tampere</a></li>");
+
+
 $flights = array();
-include("inc/oulu_flights.inc");
+include("inc/" . $town . "_flights.inc");
 
 $id = $_GET["id"];
-$flight = array();
+$selected = array();
 
-for($i=0; $i<count($flights); $i++) {
-    $temp = $flights[$i];
-    $properties = get_object_vars($temp);
+foreach ($flights as $flight) {
+    $properties = get_object_vars($flight);
     $hash = md5($properties["datetime"] . $properties["flight_id"]);
     
     if($id == $hash){
-        $flight = $properties;        
-    }   
+        $selected = $properties;        
+    }
 }
 
-if(empty($flight)){
+if(empty($selected)){
     include 'inc/flight_error.inc';    
     exit(0);
 }
 
-$modalTitle = implode(",", $flight["flightNumber"]) . " " .implode(",", $flight["route"]);
-
 $areas = array();
 $method = "read";
-include("inc/oulu_areas.inc");
+include("inc/" . $town . "_areas.inc");
 
-$dialog = "#dialog";
 $found_areas = $areas[$id];
 
 if(empty($found_areas)){
-    $dialog = "#subdialog";
+    $modalTitle = implode(",", $selected["flightNumber"]) . " " .implode(",", $selected["route"]);
+    include 'inc/flight_unpublished.inc';
 } else {
     $modalTitle = current($found_areas);
-    $callToNumber = key($found_areas);
+    $access_token = key($found_areas);
+    $picture_uri = sprintf(PICTURE_URI, $access_token);
+    $me_uri = sprintf(ME_URI, $access_token);
+    $json = file_get_contents($me_uri);
+    $decoded = json_decode($json);
+    $fb_id = $decoded->{"id"};
+    $fb_name = $decoded->{"name"};
+    $fb_address = sprintf(FB_ADDRESS, $fb_id);  
+    include 'inc/flight_published.inc';
 }
-
-include 'inc/flight_oulu.inc';
-

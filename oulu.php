@@ -8,4 +8,4 @@ $areas = array();
 $method = "read";
 include("inc/oulu_areas.inc");
 
-include("inc/oulu_html.inc");
+include("inc/oulu.inc");

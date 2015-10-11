@@ -1,91 +1,98 @@
 <!DOCTYPE html>
-<!-- saved from url=(0048)http://getbootstrap.com/examples/justified-nav/# -->
-<html lang="fi">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico">
+<html lang="en">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-<title>Taksi</title>
-
-<link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico">
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">    
-<link href="css/justified-nav.css" rel="stylesheet">
-
-</head>
+    <title>Kimppataksi</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/justified-nav.css" rel="stylesheet" type="text/css"/>
     
-<body>
-    
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+  </head>
 
-<div class="container">
+  <body>
+      
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1509772519343574',
+          xfbml      : true,
+          version    : 'v2.4'
+        });
+      };
 
-<div class="masthead">
-  <ul class="nav nav-justified">
-    <li><a href="helsinki.php">Helsinki</a></li>
-    <li><a href="oulu.php">Oulu</a></li>
-    <li><a href="tampere.php">Tampere</a></li>    
-  </ul>
-</div>
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
 
-<p>   </p>
+    <div class="container">
 
-<div class="jumbotron">
- 
-<h1>Kimppakyyti lentokentältä</h1>
-  <p>Lentosi on saapumassa kentälle ja haluaisit säästää rahaa.</p>
-  <p>Joku muukin on menossa taksilla samalle alueelle kuin sinä.</p>
-</div>
+      <div class="masthead">
+        <ul class="nav nav-justified">
+        <li><a href="helsinki.php">Helsinki</a></li>
+        <li><a href="oulu.php">Oulu</a></li>
+        <li><a href="tampere.php">Tampere</a></li>
+        </ul>
+      </div>
 
-<div class="row marketing">
-<div class="col-sm-4">
-<h2>1 Toimi seuraavasti</h2>
-<p>Valitse yläriviltä lentoasema johon lentosi saapuu.</p>
-<p>Valitse lentosi listalta.</p>
-<p>Ilmoita mihin olet menossa, sekä myös matkapuhelin-numerosi.</p>
-</div>
+    <p>   </p>
 
-<div class="col-sm-4">
-<h2>2 Saat puhelin-soiton</h2>
-<p>Saat puhelin soiton.</p>
-<p>Sovitte treffit taksi-tolpalle ja menette samalla taksilla.</p>
-</div>
-    
-<div class="col-sm-4">
-<h2>3 Taksikuski hoitaa maksun-jaon</h2>
-<p>Taksamittarit tukevat kimppakyytejä.</p>
-<p>Ensiksi kyydistä jäävä, maksaa puolet ja kyytiin jäävälle jää mittariin toinen puoli summasta.</p>
-</div>
-    
-</div>
+    <div class="jumbotron">
+
+    <h1>Kimppataksi lentokentältä</h1>
+      <p>Lentosi on saapumassa kentälle ja haluaisit säästää rahaa.</p>
+      <p>Joku muukin on menossa samalle alueelle kuin sinä.</p>
+    </div>
+
+    <div class="row marketing">
+    <div class="col-sm-4">
+    <h2>1 Toimi seuraavasti</h2>
+    <p>Valitse yläriviltä lentoasema johon lentosi saapuu.</p>
+    <p>Valitse lentosi listalta.</p>
+    <p>Ilmoita alue mihin olet menossa.</p>
+    <p>Kirjaudu Facebookissa.</p>
+    </div>
+
+    <div class="col-sm-4">
+    <h2>2 Facebook</h2>
+    <p>Ilmoituksesi huomataan.</p>
+    <p>Saat Facebook viestin.</p>
+    <p>Katsot lähettäjän profiilin.</p>
+    <p>Sovitte treffit taksitolpalle.</p>
+    </div>
+
+    <div class="col-sm-4">
+    <h2>3 Taksikuski</h2>
+    <p>Kuljettaja hoitaa maksunjaon.</p>
+    <p>Taksamittarit tukevat kimppakyytejä.</p>
+    <p>Ensiksi kyydistä jäävä maksaa puolet ja kyytiin jäävälle jää mittariin toinen puoli summasta.</p>
+    </div>
+
+    </div>
 
 
-<!-- Site footer -->
-<div class="footer">
-  <p>Palvelu on ilmainen eikä vaadi rekisteröitymistä, mitään rekisteriä ei myöskään kerätä.</p>
-  <p>Palvelua saa käyttää omalla vastuulla.</p>
-  <p>Jos haluat osallistua kehittämiseen, voit lähettää postia osoitteeseen lentokentalta@gmail.com.</p>
-  <p>Facebook sivun löydät osoitteesta <a href="http://www.facebook.com/lentokentalta">http://www.facebook.com/lentokentalta</a>.</p>
-  <span class="fb-like" data-href="http://www.facebook.com/lentokentalta" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></span>
-</div>
+    <div class="footer">
+      <p>Palvelu on ilmainen eikä vaadi rekisteröitymistä, mitään rekisteriä ei myöskään kerätä.</p>
+      <p>Jos haluat osallistua kehittämiseen, voit lähettää postia osoitteeseen lentokentalta@gmail.com.</p>
+      <p>Facebook sivun löydät osoitteesta <a href="http://www.facebook.com/lentokentalta">http://www.facebook.com/lentokentalta</a>.</p>
+      <span class="fb-like" data-href="http://www.facebook.com/lentokentalta" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></span>
+    </div>
 
-</div> <!-- /container -->
+    </div> <!-- /container -->
 
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-</body>
-</html>
+    <script src="js/ie10-viewport-bug-workaround.js" type="text/javascript"></script>
+  
+
+</body></html>

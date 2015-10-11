@@ -8,4 +8,5 @@ $areas = array();
 $method = "read";
 include("inc/tampere_areas.inc");
 
-include("inc/tampere_html.inc");
+include("inc/tampere.inc");
+
