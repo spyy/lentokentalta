@@ -90,7 +90,7 @@
         </div>
 
         <input type="hidden" name="redirect_uri" value="<?php echo REDIRECT_URI; ?>" />
-        <input type="hidden" name="client_id" value="1509963705991122" />
+        <input type="hidden" name="client_id" value="1509772519343574" />
         <input type="hidden" name="state" id="state" value="<?php echo $id; ?>" />
 
         <div class="modal-footer">        

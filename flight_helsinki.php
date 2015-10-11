@@ -3,7 +3,7 @@
 $town = "helsinki";
 $reference_area = "Herttoniemi";
 
-define("REDIRECT_URI", "http://lentokentalta.local.net/publish_" . $town . ".php");
+define("REDIRECT_URI", "http://lentokentalta.net/publish_" . $town . ".php");
 define("PICTURE_URI", "https://graph.facebook.com/me/picture?access_token=%s");
 define("ME_URI", "https://graph.facebook.com/me?access_token=%s");
 define("FB_ADDRESS", "http://facebook.com/%s");
