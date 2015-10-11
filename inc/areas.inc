@@ -36,7 +36,7 @@ if($method == "write") {
     if(!empty($areas[$id])){
         $flight_areas = $areas[$id];
     }    
-    $flight_areas[$mobile] = $area; 
+    $flight_areas[$access_token] = $area; 
     $areas[$id] = $flight_areas;
     
     $notifications->data = $areas;
