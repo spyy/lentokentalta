@@ -1,7 +1,7 @@
 <?php
 
-define("REDIRECT_URI", "http://lentokentalta.local.net/publish_tampere.php");
-define("ACCESS_TOKEN_URI", "https://graph.facebook.com/v2.3/oauth/access_token?client_id=1509963705991122&client_secret=9a960f8778fcd4b04a71e20882214d73&redirect_uri=%s&code=%s");
+define("REDIRECT_URI", "http://lentokentalta.net/publish_tampere.php");
+define("ACCESS_TOKEN_URI", "https://graph.facebook.com/v2.3/oauth/access_token?client_id=1509772519343574&client_secret=7cf2f1318d395c6ad754833777ba770f&redirect_uri=%s&code=%s");
 
 
 $flights = array();
