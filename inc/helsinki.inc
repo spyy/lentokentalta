@@ -50,12 +50,9 @@
             echo " " . implode(",", $properties["route"]);
             echo " " . implode(";", $properties["flight_nrs"]);
 
-            $flight_areas = $areas[$hash];
-            if(!empty($flight_areas)) {
-                $values = array_values($flight_areas);
-                for($k=0; $k<count($values); $k++) {
-                    echo "<span class='badge'>" . $values[$k] . "</span>";
-                }
+            if(isset($areas[$hash])) {
+                $notification = $areas[$hash];
+                echo "<span class='badge'>" . $notification["area"] . "</span>";
             }
             echo "</a>";                        
         } 

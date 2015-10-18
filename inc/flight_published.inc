@@ -15,14 +15,6 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/justified-nav.css" rel="stylesheet" type="text/css"/>
     
-    <script>
-    function doSubmit() {
-        var area = document.getElementById("area").value;
-        document.getElementById("state").value += "." + area;
-        return true;
-    }
-    </script>
-    
   </head>
 
   <body>
@@ -54,12 +46,9 @@
             echo " " . implode(",", $properties["route"]);
             echo " " . implode(";", $properties["flight_nrs"]);
 
-            $flight_areas = $areas[$hash];
-            if(!empty($flight_areas)) {
-                $values = array_values($flight_areas);
-                for($k=0; $k<count($values); $k++) {
-                    echo "<span class='badge'>" . $values[$k] . "</span>";
-                }
+            if(isset($areas[$hash])) {
+                $notification = $areas[$hash];
+                echo "<span class='badge'>" . $notification["area"] . "</span>";
             }
             echo "</a>";                        
         } 
@@ -80,6 +69,7 @@
     <div class="modal-content">
 
         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title"><?php echo $modalTitle; ?></h4>
         </div>
 
@@ -88,7 +78,6 @@
         </div>
 
         <div class="modal-footer">
-            <button type="button" class="btn btn-default btn-block btn-lg" data-dismiss="modal">Peru</button>
             <a class="btn btn-primary btn-block btn-lg" href="<?php echo $fb_address; ?>" role="button">Facebook</a>
         </div>
 

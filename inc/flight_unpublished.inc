@@ -54,12 +54,9 @@
             echo " " . implode(",", $properties["route"]);
             echo " " . implode(";", $properties["flight_nrs"]);
 
-            $flight_areas = $areas[$hash];
-            if(!empty($flight_areas)) {
-                $values = array_values($flight_areas);
-                for($k=0; $k<count($values); $k++) {
-                    echo "<span class='badge'>" . $values[$k] . "</span>";
-                }
+            if(isset($areas[$hash])) {
+                $notification = $areas[$hash];
+                echo "<span class='badge'>" . $notification["area"] . "</span>";
             }
             echo "</a>";                        
         } 
@@ -81,7 +78,8 @@
 
     <form method="get" action="https://www.facebook.com/dialog/oauth">
 
-        <div class="modal-header">            
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title">Saavun lennolla <?php echo $modalTitle; ?> ja jatkan alueelle</h4>
         </div>
 
@@ -90,11 +88,10 @@
         </div>
 
         <input type="hidden" name="redirect_uri" value="<?php echo REDIRECT_URI; ?>" />
-        <input type="hidden" name="client_id" value="1509772519343574" />
+        <input type="hidden" name="client_id" value="<?php echo CLIENT_ID; ?>" />
         <input type="hidden" name="state" id="state" value="<?php echo $id; ?>" />
 
-        <div class="modal-footer">        
-            <button type="button" class="btn btn-default btn-block btn-lg" data-dismiss="modal">Peru</button>        
+        <div class="modal-footer">       
             <button class="btn btn-primary btn-block btn-lg" type="submit" onclick="doSubmit();">Ilmoita</button>
         </div>
 
