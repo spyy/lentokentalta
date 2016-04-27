@@ -62,7 +62,7 @@
 
       <!-- Site footer -->
       <footer class="footer">
-        <p>lentokentalta@gmail.com</p>
+        <p>sami.pyy@gmail.com</p>
       </footer>
 
     </div> <!-- /container -->
