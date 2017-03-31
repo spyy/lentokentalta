@@ -17,10 +17,10 @@ $selected = array();
 
 foreach ($flights as $flight) {
     $properties = get_object_vars($flight);
-    $hash = md5($properties["datetime"] . $properties["flight_id"]);
+    $hash = md5($properties["datetime"] . $properties["flightId"]);
     
     if($id == $hash){
-        $flight_id = $properties["flight_id"];
+        $flightId = $properties["flightId"];
         $route = $properties["route"];        
     }
 }

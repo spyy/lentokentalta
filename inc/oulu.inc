@@ -38,26 +38,26 @@
         $properties = get_object_vars($flight);
 
         if($properties["history"] == "future"){
-            $hash = md5($properties["datetime"] . $properties["flight_id"]);
+            $hash = md5($properties["datetime"] . $properties["flightId"]);
             $path = "flight_oulu.php?id=" . $hash;
             echo "<a class='list-group-item' href='" . $path . "'>";
             echo $properties["time"] . " ";
-            if(!empty($properties["alt_time"])) {
-                echo $properties["alt_time"];
+            if(!empty($properties["altTime"])) {
+                echo $properties["altTime"];
             } else {
                 echo $properties["time"];
             }
             echo " " . implode(",", $properties["route"]);
-            echo " " . implode(";", $properties["flight_nrs"]);
+            echo " " . implode(";", $properties["flightNrs"]);
 
             if(isset($areas[$hash])) {
                 $notification = $areas[$hash];
                 echo "<span class='badge'>" . $notification["area"] . "</span>";
             }
-            echo "</a>";                        
-        } 
-    }                        
-    ?>        
+            echo "</a>";
+        }
+    }
+    ?>
     </div> <!-- list group -->
 
       <!-- Site footer -->
@@ -69,6 +69,6 @@
 
 
     <script src="js/ie10-viewport-bug-workaround.js"></script>
-  
+
 
 </body></html>

@@ -14,15 +14,15 @@ include("inc/oulu_flights.inc");
 
 $id = $_GET["id"];
 $selected = array();
-$flight_id = "";
+$flightId = "";
 $route = "";
 
 foreach ($flights as $flight) {
     $properties = get_object_vars($flight);
-    $hash = md5($properties["datetime"] . $properties["flight_id"]);
+    $hash = md5($properties["datetime"] . $properties["flightId"]);
     
     if($id == $hash){
-        $flight_id = $properties["flight_id"];
+        $flightId = $properties["flightId"];
         $route = $properties["route"];
     }
 }

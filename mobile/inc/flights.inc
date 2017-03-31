@@ -7,7 +7,7 @@ for($i=0; $i<count($flights); $i++ ) {
     echo $properties["time"];
     echo " " . implode(",", $properties["route"]);
     echo " " . implode(";", $properties["flightNumber"]);
-    echo "<span class='ui-li-count'>" . $properties["alt_time"] . "</span>";
+    echo "<span class='ui-li-count'>" . $properties["altTime"] . "</span>";
     echo "</a></li>";                        
 }    
 ?>
